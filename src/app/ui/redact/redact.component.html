@@ -1,0 +1,91 @@
+<div class="container">
+  <div class="row mb-3" style="text-align: center;">
+<form  [formGroup]="myFormR">
+<div class="row mb-3">
+  <div class="col-12">
+    <h5>Редактирование студента</h5>
+  </div>
+    <div class="col-4">
+    <input
+      type="number"
+      class="form-control"
+      placeholder="id"
+      formControlName="id"
+    />
+  </div>
+  <div class="col-4">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Имя"
+      formControlName="name"
+    />
+  </div>
+  <div class="col-4">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Фамилия"
+      formControlName="surname"
+    />
+  </div>
+   <div class="col-4">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Отчество"
+      formControlName="patr"
+    />
+  </div>
+  <div class="col-4">
+   <input 
+      pattern="[0-9]{11}"
+      type="tel"
+      class="form-control"
+      placeholder="Номер телефона"
+      formControlName="phone"
+    />
+  </div>
+   <div class="col-4">
+    <input
+      type="email"
+      class="form-control"
+      placeholder="email"
+      formControlName="email"
+    />
+  </div>
+  <div class="col-4">
+    <input
+      type="date"
+      class="form-control"
+      placeholder="bd"
+      formControlName="bd"
+    />
+  </div>
+   <div class="col-4">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Направление"
+      formControlName="section"
+    />
+  </div>
+   <div class="col-4">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Учебная группа"
+      formControlName="group"
+    />
+  </div>
+  <div class="col-12 mt-1">
+    <button class="btn btn-outline-primary btn-sm" [disabled]="myFormR.controls['name'].invalid ||myFormR.controls['surname'].invalid ||myFormR.controls['group'].invalid ||myFormR.controls['email'].invalid ||myFormR.controls['section'].invalid ||myFormR.controls['bd'].invalid|| myFormR.controls['phone'].invalid" (click)="onRedactStudent()">Редактировать</button>
+  </div>
+  <div class="alert alert-info">Для удаления студента введите его id</div>
+   <div class="col-12 mt-1">
+    <button class="btn btn-outline-primary btn-sm" [disabled]="myFormR.controls['id'].invalid" (click)="onDeleteRedStudent()">Удалить</button>
+  </div>
+  </div>
+</form>
+</div>
+</div>

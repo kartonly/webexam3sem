@@ -1,0 +1,37 @@
+<ng-container *ngIf="students.length > 0">
+<div>
+    <div class="table-responsive table-striped auto__table text-left" [style.width]="'100%'">
+      <h5>{{ title }}</h5>
+      <table class="table table-responsive" [style.width]="'100%'">
+        <thead>
+          <tr>
+            <th [style.width]="'5%'">#</th>
+            <th [style.width]="'19%'">Фамилия</th>
+            <th [style.width]="'19%'">Инициалы</th>
+            <th [style.width]="'19%'">Номер группы</th>
+            <th [style.width]="'19%'">Направление подготовки</th>
+            <th [style.width]="'19%'"></th>
+          </tr>
+        </thead>
+        <tbody >
+          <tr *ngFor="let student of students | lastnamepipe  | filter : searchstudent| filtergroup : searchstudentgroup | filtersection : searchstudentsection">
+            <th scope="row">{{ student.id }}</th>
+            <td>{{ student.surname }}</td>
+            <td>{{ student.name.substring(0, 1) }}.{{ student.patr.substring(0, 1) }}</td>
+            <td>{{ student.group }}</td>
+            <td>{{ student.section }}</td>
+            <td>
+            
+              <button
+                class="btn btn-outline-danger btn-sm"
+                (click)="onDeleteStudent(student.id)"
+              >
+                Удалить
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</ng-container>

@@ -1,0 +1,38 @@
+
+<div class="container">
+  <div class="row mb-3">
+    <div class="col-12">
+      <h1>{{ title }}</h1>
+    </div>
+  </div>
+<app-redact (redactStudent)="onRedactStudent($event)" (redactdelStudent)="onDeleteRedStudent($event)"></app-redact>
+<app-addform-student (addStudent)="onAddStudent($event)"></app-addform-student>
+<h4>Найти студента (по фамилии, группе или направлению)</h4>
+<input type="search" class="form-control" [(ngModel)]="searchstudent">
+<h4>Найти студента (по группе)</h4>
+<select class="form-control" [(ngModel)]="searchstudentgroup">
+  <option value=""></option>
+  <option value="191-321">191-321</option>
+  <option value="191-322">191-322</option>
+</select>
+<h4>Найти студента (по направлению)</h4>
+<select class="form-control" [(ngModel)]="searchstudentsection">
+  <option value=""></option>
+  <option value="Веб-технологии">Веб-технологии</option>
+  <option value="Дизайн">Дизайн</option>
+  <option value="Экономика">Экономика</option>
+  <option value="Архитектура">Архитектура</option>
+</select>
+
+<br>
+<div style="width:1000px; margin-bottom: 5%" [style.width]="'100%'">
+  <app-table-students
+    [title]="'Студенты'"
+    [students]="getAll()"
+    (deleteStudent)="onDeleteById($event)"
+    [searchstudent]="searchstudent"
+    [searchstudentgroup]="searchstudentgroup"
+    [searchstudentsection]="searchstudentsection"
+  ></app-table-students>
+</div>
+</div>

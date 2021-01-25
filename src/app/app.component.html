@@ -1,0 +1,12 @@
+
+<div class="logo">
+  <a class="navbar-brand" [routerLink]="'/'" >osmanova0941</a>
+</div>
+<div class="menu">
+ <a class="nav-link" [routerLink]="'/'" [routerLinkActive]="'active'"
+          [routerLinkActiveOptions]="{ exact: true }">Главная<span class="sr-only">(current)</span></a>
+<a class="nav-link" [routerLink]="'/main'" [routerLinkActive]="'active'"
+          [routerLinkActiveOptions]="{ exact: true }">Студенты</a>
+</div>
+
+<router-outlet></router-outlet>
